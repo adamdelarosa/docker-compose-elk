@@ -3,9 +3,17 @@ services:
  elastic-search:
   image: elasticsearch:latest
   ports:
-  - "80:80"
   - "9200:9200"
   - "9300:9300"
-  volumes:
-  - ./data/logstash-data/:/etc/logstash
   command: elasticsearch -Des.network.host=0.0.0.0
+ logstash:
+  image: logstash:latest
+  volumes:
+    - ./elk-config/logstash-data:/etc/logstash/conf.d
+  ports:
+    - "5000:5000"
+  command: logstash -f /etc/logstash/conf.d/logstash.conf
+  links:
+    - elastic-search
+
+
