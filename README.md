@@ -9,6 +9,7 @@ Elasticsearch is a search server based on Lucene. It provides a distributed, mul
 #Kill docker containersL
 `./kill`
 
-#install:
+#Install Docker:
 `https://docs.docker.com/engine/installation/`
+#Install Docker Compose:
 `https://docs.docker.com/compose/install/`
