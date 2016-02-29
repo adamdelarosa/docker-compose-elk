@@ -1,1 +1,1 @@
-#Elasticsearch, Logstash, and Kibana
+#Docker compose - Elasticsearch, Logstash, and Kibana.
