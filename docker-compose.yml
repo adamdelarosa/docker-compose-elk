@@ -1,12 +1,14 @@
 version: '2'
 services:
  elastic-search:
+  container_name: elasticsearch
   image: elasticsearch:latest
   ports:
   - "9200:9200"
   - "9300:9300"
   command: elasticsearch -Des.network.host=0.0.0.0
  logstash:
+  container_name: logstash
   image: logstash:latest
   volumes:
     - ./elk-config/logstash-data:/etc/logstash/conf.d
@@ -17,6 +19,7 @@ services:
     - elastic-search
  kibana:
   image: kibana:latest
+  container_name: kibana
   volumes:
     - ./elk-config/kibana/config/kibana.yml:/opt/kibana/config/kibana.yml
   ports:
